@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@model List<WebApplication1.Entity.BookWithAuthor>
+
+<h2>Книги</h2>
+
+<div id="books-list">
+    <div>
+        @Html.ActionLink("Создать","Create")
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Author</th>
+                <th>Title</th>
+                <th>Pages</th>
+                <th>Price</th>
+                <td></td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Author</td>
+                    <td>@item.Title</td>
+                    <td>@item.Pages</td>
+                    <td>@item.Price</td>
+                    <td>@Html.ActionLink("Редактировать","Edit")</td>
+                    <td>@Html.ActionLink("Удалить","Delete")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
