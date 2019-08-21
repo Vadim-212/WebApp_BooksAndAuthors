@@ -33,7 +33,7 @@
                     <td>@item.Pages</td>
                     <td>@item.Price</td>
                     <td>@Html.ActionLink("Редактировать","Edit", new { id = item.Id }, null)</td>
-                    <td>@Html.ActionLink("Удалить","Delete")</td>
+                    <td>@Html.ActionLink("Удалить", "Delete", new { id = item.Id })</td>
                 </tr>
             }
         </tbody>

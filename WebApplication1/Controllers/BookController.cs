@@ -50,6 +50,7 @@ namespace WebApplication1.Controllers
                     });
                 }
 
+                sli[0].Selected = true;
                 ViewBag.authorsList = sli;
             }
             
@@ -116,7 +117,21 @@ namespace WebApplication1.Controllers
         {
             using (Library db = new Library())
             {
-                //db.Books.Where(x=>x.Id==book.Id).FirstOrDefault().AuthorId == 
+                db.Books.Where(x => x.Id == book.Id).FirstOrDefault().AuthorId = int.Parse(Request.Form["authorsList"]);
+                db.Books.Where(x => x.Id == book.Id).FirstOrDefault().Title = book.Title;
+                db.Books.Where(x => x.Id == book.Id).FirstOrDefault().Pages = book.Pages;
+                db.Books.Where(x => x.Id == book.Id).FirstOrDefault().Price = book.Price;
+                db.SaveChanges();
+            }
+            return Redirect("~/Book/Index");
+        }
+
+        public ActionResult Delete(int id)
+        {
+            using (Library db = new Library())
+            {
+                db.Books.Remove(db.Books.Where(x => x.Id == id).FirstOrDefault());
+                db.SaveChanges();
             }
             return Redirect("~/Book/Index");
         }
