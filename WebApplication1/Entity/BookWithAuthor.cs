@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace WebApplication1.Entity
 {
@@ -20,6 +21,8 @@ namespace WebApplication1.Entity
 
         public int? Price { get; set; }
 
+        public List<Authors> Authors { get; set; }
 
+        public SelectListItem SelectedAuthor { get; set; }
     }
 }
