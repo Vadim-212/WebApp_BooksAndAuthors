@@ -19,6 +19,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Author, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+                <input id="authors-list-search" class="form-control" type="text" />
                 @Html.DropDownList("authorsList", ViewBag.authorsList as SelectList, null, new { @class = "form-control" })
             </div>
         </div>

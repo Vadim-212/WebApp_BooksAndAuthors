@@ -15,8 +15,10 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
+            <input id="authors-list-search" class="form-control" type="text" />
             @Html.LabelFor(model => model.Author, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+                
                 @Html.DropDownList("authorsList", ViewBag.authorsList as SelectList, null, new { @class = "form-control" })
             </div>
         </div>

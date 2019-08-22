@@ -1,4 +1,4 @@
-﻿
+﻿@using WebApplication1.App_Start
 @{
     ViewBag.Title = "Index";
 }
@@ -10,6 +10,7 @@
 <div id="books-list">
     <div>
         @Html.ActionLink("Создать","Create")
+        @*@Html.Custom_Editor()*@
     </div>
     <table class="table">
         <thead>
