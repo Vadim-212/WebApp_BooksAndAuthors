@@ -203,13 +203,27 @@
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UsersBooksController.cs" />
     <Compile Include="Entity\Authors.cs" />
     <Compile Include="Entity\Books.cs" />
     <Compile Include="Entity\BookWithAuthor.cs" />
     <Compile Include="Entity\Library.cs" />
+    <Compile Include="Entity\Users.cs" />
+    <Compile Include="Entity\UsersBooks.cs" />
+    <Compile Include="Entity\UsersWithBooks.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908261330116_AddUsers.cs" />
+    <Compile Include="Migrations\201908261330116_AddUsers.Designer.cs">
+      <DependentUpon>201908261330116_AddUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908261349185_AddUsersBooks.cs" />
+    <Compile Include="Migrations\201908261349185_AddUsersBooks.Designer.cs">
+      <DependentUpon>201908261349185_AddUsersBooks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -287,6 +301,12 @@
     <Content Include="Views\Author\Edit.cshtml" />
     <Content Include="Views\Book\Edit.cshtml" />
     <Content Include="Views\Book\Create.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\UsersBooks\Index.cshtml" />
+    <Content Include="Views\UsersBooks\Edit.cshtml" />
+    <Content Include="Views\UsersBooks\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -298,6 +318,14 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <None Include="Scripts\jquery-1.10.2.min.map.bak" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201908261330116_AddUsers.resx">
+      <DependentUpon>201908261330116_AddUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908261349185_AddUsersBooks.resx">
+      <DependentUpon>201908261349185_AddUsersBooks.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

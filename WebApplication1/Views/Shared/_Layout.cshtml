@@ -8,7 +8,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/Scripts/script.js?v=1")
+    @Scripts.Render("~/Scripts/script.js?v=2")
 
 </head>
 <body>
@@ -29,6 +29,8 @@
                     <li>@Html.ActionLink("Контакт", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Авторы","Index","Author")</li>
                     <li>@Html.ActionLink("Книги", "Index", "Book")</li>
+                    <li>@Html.ActionLink("Пользователи","Index","User")</li>
+                    <li>@Html.ActionLink("Покупка книг","Index","UsersBooks")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

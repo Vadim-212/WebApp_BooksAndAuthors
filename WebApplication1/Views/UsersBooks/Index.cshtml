@@ -1,0 +1,32 @@
+﻿@model List<WebApplication1.Entity.UsersWithBooks>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div>
+    <div>
+        @Html.ActionLink("Создать","Create")
+    </div>
+    <table class="table">
+        <thead>
+            <th>Id</th>
+            <th>User</th>
+            <th>Book</th>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.User</td>
+                    <td>@item.Book</td>
+                    <td>@Html.ActionLink("Редактировать","Edit", new { id = item.Id })</td>
+                    <td>@Html.ActionLink("Удалить","Delete", new { id = item.Id })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
