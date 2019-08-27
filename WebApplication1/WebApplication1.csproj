@@ -208,6 +208,7 @@
     <Compile Include="Entity\Authors.cs" />
     <Compile Include="Entity\Books.cs" />
     <Compile Include="Entity\BookWithAuthor.cs" />
+    <Compile Include="Entity\HelpClass.cs" />
     <Compile Include="Entity\Library.cs" />
     <Compile Include="Entity\Users.cs" />
     <Compile Include="Entity\UsersBooks.cs" />
@@ -307,6 +308,7 @@
     <Content Include="Views\UsersBooks\Index.cshtml" />
     <Content Include="Views\UsersBooks\Edit.cshtml" />
     <Content Include="Views\UsersBooks\Create.cshtml" />
+    <Content Include="Views\Author\Partial\_TopAuthorsPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
