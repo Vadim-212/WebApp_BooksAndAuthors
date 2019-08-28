@@ -23,9 +23,8 @@ namespace WebApplication1
             TagBuilder tag = new TagBuilder("input");
             tag.Attributes.Add("name", fullBindingName);
             tag.Attributes.Add("id", fieldId);
-            tag.Attributes.Add("type", "text");
+            tag.Attributes.Add("type", "datetime-local");
             tag.Attributes.Add("value", value == null ? "" : value.ToString());
-            tag.Attributes.Add("background-color", "yellow");
 
             var validationAttributes = html.GetUnobtrusiveValidationAttributes(fullBindingName, metadata);
             foreach (var key in validationAttributes.Keys)

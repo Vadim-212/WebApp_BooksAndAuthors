@@ -52,6 +52,7 @@ namespace WebApplication1.Controllers
             using (Library db = new Library())
             {
                 db.Users.Where(x => x.Id == user.Id).FirstOrDefault().Name = user.Name;
+                db.Users.Where(x => x.Id == user.Id).FirstOrDefault().Email = user.Email;
                 db.SaveChanges();
             }
             return Redirect("~/User/Index");
