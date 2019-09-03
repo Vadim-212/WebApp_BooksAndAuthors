@@ -192,29 +192,29 @@ namespace WebApplication1.Controllers
             //smtp.EnableSsl = true;
             //smtp.Send(m);
 
-            var fromAddress = new MailAddress("@", "Имя приложения");
-            var toAddress = new MailAddress(user.Email, user.Name);
-            const string fromPassword = "-";
-            const string subject = "Возврат киниги";
-            string body = $"<h2>Срок сдачи книги {author.FirstName} {author.LastName} \"{book.Title}\" истёк</h2><p>Просьба сдать книгу в ближайшее время</p>";
+            //var fromAddress = new MailAddress("@", "Имя приложения");
+            //var toAddress = new MailAddress(user.Email, user.Name);
+            //const string fromPassword = "-";
+            //const string subject = "Возврат киниги";
+            //string body = $"<h2>Срок сдачи книги {author.FirstName} {author.LastName} \"{book.Title}\" истёк</h2><p>Просьба сдать книгу в ближайшее время</p>";
 
-            var smtp = new SmtpClient
-            {
-                Host = "smtp.mail.ru",
-                Port = 465,
-                EnableSsl = true,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
-            };
-            using (var message = new MailMessage(fromAddress, toAddress)
-            {
-                Subject = subject,
-                Body = body
-            })
-            {
-                smtp.Send(message);
-            }
+            //var smtp = new SmtpClient
+            //{
+            //    Host = "smtp.mail.ru",
+            //    Port = 465,
+            //    EnableSsl = true,
+            //    DeliveryMethod = SmtpDeliveryMethod.Network,
+            //    UseDefaultCredentials = false,
+            //    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+            //};
+            //using (var message = new MailMessage(fromAddress, toAddress)
+            //{
+            //    Subject = subject,
+            //    Body = body
+            //})
+            //{
+            //    smtp.Send(message);
+            //}
 
             return Redirect("~/UsersBooks/Index");
         }

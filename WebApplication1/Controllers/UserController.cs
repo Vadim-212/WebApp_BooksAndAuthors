@@ -58,6 +58,41 @@ namespace WebApplication1.Controllers
             return Redirect("~/User/Index");
         }
 
+        public ActionResult CreateEdit(int id)
+        {
+            if (id == -1)
+                return View();
+            Users user;
+            using (Library db = new Library())
+            {
+                user = db.Users.Where(x => x.Id == id).First();
+            }
+            return View(user);
+        }
+        [HttpPost]
+        public ActionResult CreateEdit(Users user)
+        {
+            using (Library db = new Library())
+            {
+                Users u = new Users();
+                try
+                {
+                    u = db.Users.Where(x => x.Id == user.Id).First();
+                }
+                catch
+                {
+                    db.Users.Add(user);
+                }
+                if (u.Name != null && u.Email != null && u.Id != 0)
+                {
+                    db.Users.Where(x => x.Id == user.Id).First().Name = user.Name;
+                    db.Users.Where(x => x.Id == user.Id).First().Email = user.Email;
+                }
+                db.SaveChanges();
+            }
+            return Redirect("~/User/Index");
+        }
+
         public ActionResult Delete(int id)
         {
             using (Library db = new Library())

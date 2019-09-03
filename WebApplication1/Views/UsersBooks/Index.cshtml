@@ -7,7 +7,8 @@
 
 <div>
     <div>
-        @Html.ActionLink("Создать","Create")
+        @*@Html.ActionLink("Создать","Create")*@
+        @Html.ActionLink("Создать","CreateEdit", new { id = -1 })
     </div>
     <table class="table">
         <thead>
@@ -41,7 +42,8 @@
                         @item.ReturnDate
                     }
                     </td>
-                    <td>@Html.ActionLink("Редактировать","Edit", new { id = item.Id })</td>
+                    @*<td>@Html.ActionLink("Редактировать","Edit", new { id = item.Id })</td>*@
+                    <td>@Html.ActionLink("Редактировать", "CreateEdit", new { id = item.Id })</td>
                     <td>@Html.ActionLink("Удалить","Delete", new { id = item.Id })</td>
                 </tr>
             }

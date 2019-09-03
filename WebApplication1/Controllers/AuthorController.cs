@@ -81,6 +81,36 @@ namespace WebApplication1.Controllers
             return Redirect("~/Author/Index");
         }
 
+        public ActionResult CreateEdit(int id)
+        {
+            if (id == -1)
+                return View();
+            Authors author;
+            using (Library db = new Library())
+            {
+                author = db.Authors.Where(x => x.Id == id).FirstOrDefault();
+            }
+            return View(author);
+        }
+        [HttpPost]
+        public ActionResult CreateEdit(Authors author)
+        {
+            using (Library db = new Library())
+            {
+                try
+                {
+                    var a = db.Authors.Where(x => x.Id == author.Id).First();
+                    db.Entry(author).State = System.Data.Entity.EntityState.Modified;
+                }
+                catch
+                {
+                    db.Authors.Add(author);
+                }
+                db.SaveChanges();
+            }
+            return Redirect("~/Author/Index");
+        }
+
         public ActionResult Delete(int id)
         {
             using (Library db = new Library())

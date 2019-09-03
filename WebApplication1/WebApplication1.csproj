@@ -313,6 +313,9 @@
     <Content Include="Views\UsersBooks\Edit.cshtml" />
     <Content Include="Views\UsersBooks\Create.cshtml" />
     <Content Include="Views\Author\Partial\_TopAuthorsPartialView.cshtml" />
+    <Content Include="Views\Author\CreateEdit.cshtml" />
+    <Content Include="Views\Book\CreateEdit.cshtml" />
+    <Content Include="Views\User\CreateEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
