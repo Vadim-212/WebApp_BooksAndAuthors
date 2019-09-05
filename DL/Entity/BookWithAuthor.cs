@@ -5,7 +5,7 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
-namespace WebApplication1.Entity
+namespace DL.Entity
 {
     public class BookWithAuthor
     {

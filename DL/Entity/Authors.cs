@@ -1,4 +1,4 @@
-namespace WebApplication1.Entity
+namespace DL.Entity
 {
     using System;
     using System.Collections.Generic;

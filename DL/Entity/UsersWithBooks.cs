@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace WebApplication1.Entity
+namespace DL.Entity
 {
     public class UsersWithBooks
     {
