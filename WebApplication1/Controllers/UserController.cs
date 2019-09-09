@@ -4,11 +4,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AutoMapper;
+using BL.BuisnessModel;
+using BL;
+using BL.Service;
 
 namespace WebApplication1.Controllers
 {
     public class UserController : Controller
     {
+        private UserService userService;
+        public UserController()
+        {
+            userService = new UserService(new DL.Repository.UnitOfWork(new Library()));
+        }
         // GET: User
         public ActionResult Index()
         {
@@ -101,6 +110,19 @@ namespace WebApplication1.Controllers
                 db.SaveChanges();
             }
             return Redirect("~/User/Index");
+        }
+
+        public ActionResult GetTop5Orders(int userId)
+        {
+            List<UsersBooks> ba = AutoMapper<IEnumerable<UsersBooksBM>, List<UsersBooks>>.Map(userService.GetReturnBooks, (int)userId);
+            Users user = AutoMapper<UserBM, Users>.Map(userService.GetUser, (int)userId);
+
+            var result = new JsonResult
+            {
+                Data = new { res = ba },
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet
+            };
+            return result;
         }
     }
 }

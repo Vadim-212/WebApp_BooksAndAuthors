@@ -10,7 +10,8 @@ namespace WebApplication1
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
-                        "~/Scripts/script.js"));
+                        "~/Scripts/script.js",
+                        "~/Scripts/App/script.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
