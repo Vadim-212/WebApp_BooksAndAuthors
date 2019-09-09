@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DL.Entity;
+using System.Data.Entity;
 
 namespace DL.Repository
 {
