@@ -1,4 +1,4 @@
-﻿@model List<WebApplication1.Entity.Users>
+﻿@model IEnumerable<WebApplication1.Models.UserModel>
 @{
     ViewBag.Title = "Index";
 }
@@ -8,7 +8,7 @@
 <div>
     <div>
         @*@Html.ActionLink("Создать","Create")*@
-        @Html.ActionLink("Создать", "CreateEdit", new { id = -1 })
+        @Html.ActionLink("Создать", "CreateEdit")
     </div>
     <table class="table">
         <thead>

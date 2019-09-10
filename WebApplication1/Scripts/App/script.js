@@ -5,7 +5,7 @@ function GetTop5Users()
         type: `GET`,
         datatype: `json`,
         //url: `/Users/GetTop5Orders/`,
-        url: `/Users/GetTop5Orders/1`,
+        url: `/User/GetTop5Orders/1`,
         //data: {
         //    userId: 1
         //},

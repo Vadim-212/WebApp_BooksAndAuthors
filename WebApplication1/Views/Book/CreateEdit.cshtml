@@ -1,26 +1,26 @@
-﻿@model WebApplication1.Entity.BookWithAuthor
+﻿@model WebApplication1.Models.BookModel
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "CreateEdit";
 }
 
-<h2>Edit</h2>
+<h2>CreateAndEdit</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>BookWithAuthor</h4>
+        <h4>BookModel</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Author, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.AuthorName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input id="authors-list-search" class="form-control" type="text" />
-                @Html.DropDownList("authorsList", ViewBag.authorsList as SelectList, null, new { @class = "form-control" })
+                @Html.DropDownListFor(md => md.AuthorId, ViewBag.AuthorId as SelectList, new { @class = "btn btn-default dropdown-toggle form-control" })
+                @Html.ValidationMessageFor(model => model.AuthorId, "", new { @class = "text-danger" })
             </div>
         </div>
 

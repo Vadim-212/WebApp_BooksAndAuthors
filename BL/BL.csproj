@@ -87,7 +87,10 @@
     <Compile Include="Service\BookService.cs" />
     <Compile Include="Service\IAuthorService.cs" />
     <Compile Include="Service\IBookService.cs" />
+    <Compile Include="Service\IUserBookService.cs" />
     <Compile Include="Service\IUserService.cs" />
+    <Compile Include="Service\ServiceModule.cs" />
+    <Compile Include="Service\UserBookService.cs" />
     <Compile Include="Service\UserService.cs" />
   </ItemGroup>
   <ItemGroup>

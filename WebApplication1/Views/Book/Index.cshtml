@@ -2,14 +2,14 @@
     ViewBag.Title = "Index";
 }
 
-@model List<WebApplication1.Entity.BookWithAuthor>
+@model IEnumerable<WebApplication1.Models.BookModel>
 
 <h2>Книги</h2>
 
 <div id="books-list">
     <div>
         @*@Html.ActionLink("Создать","Create")*@
-        @Html.ActionLink("Создать","CreateEdit",new { id = -1 })
+        @Html.ActionLink("Создать","CreateEdit")
     </div>
     <table class="table">
         <thead>
@@ -28,7 +28,7 @@
             {
                 <tr>
                     <td>@item.Id</td>
-                    <td>@item.Author</td>
+                    <td>@item.AuthorName</td>
                     <td>@item.Title</td>
                     <td>@item.Pages</td>
                     <td>@item.Price</td>
