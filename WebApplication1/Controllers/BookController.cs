@@ -43,12 +43,14 @@ namespace WebApplication1.Controllers
         {
             BookBM newBook = AutoMapper<BookModel, BookBM>.Map(book);
             bookService.CreateOrUpdate(newBook);
+            bookService.Save();
             return RedirectToAction("Index");
         }
 
         public ActionResult Delete(int id)
         {
             bookService.DeleteBook(id);
+            bookService.Save();
             return RedirectToAction("Index");
         }
     }

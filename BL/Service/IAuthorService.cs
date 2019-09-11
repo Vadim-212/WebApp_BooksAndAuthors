@@ -13,6 +13,7 @@ namespace BL.Service
         AuthorBM GetAuthor(int id);
         IEnumerable<AuthorBM> GetAuthors();
         void DeleteAuthor(int id);
+        void Save();
         void Dispose();
     }
 }

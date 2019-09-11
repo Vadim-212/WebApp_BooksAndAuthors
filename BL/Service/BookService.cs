@@ -54,5 +54,10 @@ namespace BL.Service
         {
             return AutoMapper<IEnumerable<Books>, List<BookBM>>.Map(Db.Books.GetAll);
         }
+
+        public void Save()
+        {
+            Db.Save();
+        }
     }
 }

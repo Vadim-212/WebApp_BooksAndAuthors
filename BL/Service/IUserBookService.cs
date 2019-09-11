@@ -14,6 +14,7 @@ namespace BL.Service
         IEnumerable<UsersBooksBM> GetUsersBooks();
         void DeleteUserBook(int id);
         bool CheckUser(int id);
+        void Save();
         void Dispose();
     }
 }

@@ -70,6 +70,7 @@ namespace WebApplication1.Controllers
             if (userBookService.CheckUser(usersBooks.UserId))
             {
                 userBookService.CreateOrUpdate(busersBooks);
+                userBookService.Save();
                 return RedirectToAction("Index");
             }
             else
@@ -84,6 +85,7 @@ namespace WebApplication1.Controllers
         public ActionResult Delete(int id)
         {
             userBookService.DeleteUserBook(id);
+            userBookService.Save();
             return RedirectToAction("Index");
         }
 

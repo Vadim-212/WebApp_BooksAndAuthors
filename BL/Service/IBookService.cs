@@ -13,6 +13,7 @@ namespace BL.Service
         BookBM GetBook(int id);
         IEnumerable<BookBM> GetBooks();
         void DeleteBook(int id);
+        void Save();
         void Dispose();
     }
 }

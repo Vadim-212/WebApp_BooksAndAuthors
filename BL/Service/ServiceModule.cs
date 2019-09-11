@@ -1,4 +1,5 @@
-﻿using DL.Repository;
+﻿using DL.Entity;
+using DL.Repository;
 using Ninject.Modules;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,11 @@ namespace BL.Service
         }
         public override void Load()
         {
-            Bind<IUnitOfWork>().To<UnitOfWork>().WithConstructorArgument(connection);
+            if (connection == "DefaultConnection")
+                Bind<IUnitOfWork>().To<UnitOfWork>().WithConstructorArgument(new Library());
+            else
+                Bind<IUnitOfWork>().To<UnitOfWork>().WithConstructorArgument(connection);
+            
         }
     }
 }

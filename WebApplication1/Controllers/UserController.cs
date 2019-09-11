@@ -42,12 +42,14 @@ namespace WebApplication1.Controllers
         {
             UserBM user = AutoMapper<UserModel, UserBM>.Map(model);
             userService.CreateOrUpdate(user);
+            userService.Save();
             return RedirectToAction("Index");
         }
 
         public ActionResult Delete(int id)
         {
             userService.DeleteUser(id);
+            userService.Save();
             return RedirectToAction("Index");
         }
     }

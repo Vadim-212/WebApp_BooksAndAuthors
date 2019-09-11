@@ -36,6 +36,11 @@ namespace BL.Service
             Db.Authors.Delete(id);
         }
 
+        public void Save()
+        {
+            Db.Save();
+        }
+
         public void Dispose()
         {
             Db.Dispose();

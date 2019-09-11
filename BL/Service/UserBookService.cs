@@ -74,5 +74,9 @@ namespace BL.Service
                 Database.UsersBooks.Delete(id);
                 Database.Save();
             }
+        public void Save()
+        {
+            Database.Save();
+        }
     }
 }

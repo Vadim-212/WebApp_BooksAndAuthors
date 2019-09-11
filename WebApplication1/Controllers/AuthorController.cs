@@ -34,12 +34,14 @@ namespace WebApplication1.Controllers
         {
             AuthorBM oldAuthor = AutoMapper<AuthorModel, AuthorBM>.Map(author);
             authorService.CreateOrUpdate(oldAuthor);
+            authorService.Save();
             return RedirectToActionPermanent("Index", "Author");
         }
 
         public ActionResult Delete(int id)
         {
             authorService.DeleteAuthor(id);
+            authorService.Save();
             return RedirectToAction("Index", "Author");
         }
     }
