@@ -20,8 +20,6 @@
                 @*@Html.EditorFor(model => model.UserId, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.DropDownList("usersList", ViewBag.usersList as SelectList, null, new { @class = "form-control"})
                 @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
-                <button id="users-list-search-btn" class="btn btn-default btn-light">Search</button>
-                <input id="users-list-search" class="form-control" type="text" />
             </div>
         </div>
 
@@ -31,8 +29,6 @@
                 @*@Html.EditorFor(model => model.BookId, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.DropDownList("booksList",ViewBag.booksList as SelectList, null, new { @class = "form-control"})
                 @Html.ValidationMessageFor(model => model.BookId, "", new { @class = "text-danger" })
-                <button id="books-list-search-btn" class="btn btn-default btn-light">Search</button>
-                <input id="books-list-search" class="form-control" type="text" />
             </div>
         </div>
 
