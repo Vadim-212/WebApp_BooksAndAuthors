@@ -1,0 +1,25 @@
+﻿<h2>@ViewBag.CurrentUserHistoryName</h2>
+
+<table class="table">
+    <thead>
+        <th>Id</th>
+        <th>User</th>
+        <th>Book</th>
+        <th>Issue Date</th>
+        <th>Time</th>
+        <th>Return Date</th>
+    </thead>
+    <tbody>
+        @foreach(var item in ViewBag.OrdersList)
+        {
+            <tr>
+                <td>Id</td>
+                <td>User</td>
+                <td>Book</td>
+                <td>Issue Date</td>
+                <td>Time</td>
+                <td>Return Date</td>
+            </tr>
+        }
+    </tbody>
+</table>

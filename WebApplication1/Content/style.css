@@ -2,3 +2,56 @@ body
 {
     padding: 0;
 }
+
+.col-md-4 a:hover
+{
+    border: 1px solid #007bff;
+    color: #007bff;
+}
+
+@keyframes AnimationName {
+    0%
+    {
+        color: rgb(255,255,255);
+
+    }
+    50%
+    {
+        color:rgb(52,58,64)
+
+    }
+    100%
+    {
+        color: rgb(255,255,255);
+    }
+}
+
+.navbar-brand:hover
+{
+    animation: AnimationName 0.8s ease;
+}
+
+#image-galery div:first-child
+{
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+#image-galery div:last-child
+{
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+
+#image-galery div:last-child img
+{
+	width: 170px;
+	height: 250px;
+	padding: 0 5px
+}
