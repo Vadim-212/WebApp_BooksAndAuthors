@@ -52,6 +52,8 @@ namespace DL.Repository
             db.Books.Where(x => x.Id == item.Id).FirstOrDefault().Title = item.Title;
             db.Books.Where(x => x.Id == item.Id).FirstOrDefault().Pages = item.Pages;
             db.Books.Where(x => x.Id == item.Id).FirstOrDefault().Price = item.Price;
+            db.Books.Where(x => x.Id == item.Id).FirstOrDefault().GenreId = item.GenreId;
+            db.Books.Where(x => x.Id == item.Id).FirstOrDefault().Image = item.Image;
         }
     }
 }

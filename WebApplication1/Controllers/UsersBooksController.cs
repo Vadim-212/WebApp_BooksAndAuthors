@@ -65,6 +65,17 @@ namespace WebApplication1.Controllers
                 return View(usersBooks);
             }
 
+            if (usersBooks.Time == null || DateTime.Compare(usersBooks.Time, new DateTime(1, 1, 1)) == 0)
+            {
+                ViewBag.books = new SelectList(books, "Id", "Title", usersBooks.BooksId);
+                ViewBag.users = new SelectList(users, "Id", "Name", usersBooks.UserId);
+                ViewBag.error = "Укажите срок сдачи книги";
+                return View(usersBooks);
+            }
+
+            if (DateTime.Compare(usersBooks.ReturnDate, new DateTime(1, 1, 1)) == 0)
+                usersBooks.ReturnDate = new DateTime(1900, 1, 1);
+
             UsersBooksBM busersBooks = AutoMapper<AuthorBook, UsersBooksBM>.Map(usersBooks);
 
             if (userBookService.CheckUser(usersBooks.UserId))

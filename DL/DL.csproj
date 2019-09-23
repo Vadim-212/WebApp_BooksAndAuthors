@@ -81,6 +81,7 @@
     <Compile Include="Entity\Authors.cs" />
     <Compile Include="Entity\Books.cs" />
     <Compile Include="Entity\BookWithAuthor.cs" />
+    <Compile Include="Entity\Genre.cs" />
     <Compile Include="Entity\HelpClass.cs" />
     <Compile Include="Entity\Library.cs" />
     <Compile Include="Entity\Users.cs" />
@@ -98,10 +99,15 @@
     <Compile Include="Migrations\201908281244501_Users_UsersBooks_Update.Designer.cs">
       <DependentUpon>201908281244501_Users_UsersBooks_Update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909231501262_AddGenre_GenreAndImageInBooks.cs" />
+    <Compile Include="Migrations\201909231501262_AddGenre_GenreAndImageInBooks.Designer.cs">
+      <DependentUpon>201909231501262_AddGenre_GenreAndImageInBooks.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AuthorRepository.cs" />
     <Compile Include="Repository\BookRepository.cs" />
+    <Compile Include="Repository\GenreRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\IUnitOfWork.cs" />
     <Compile Include="Repository\UnitOfWork.cs" />
@@ -117,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908281244501_Users_UsersBooks_Update.resx">
       <DependentUpon>201908281244501_Users_UsersBooks_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909231501262_AddGenre_GenreAndImageInBooks.resx">
+      <DependentUpon>201909231501262_AddGenre_GenreAndImageInBooks.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

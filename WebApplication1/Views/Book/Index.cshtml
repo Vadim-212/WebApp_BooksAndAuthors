@@ -17,6 +17,8 @@
                 <th>Id</th>
                 <th>Author</th>
                 <th>Title</th>
+                <th>Genre</th>
+                <th>Image</th>
                 <th>Pages</th>
                 <th>Price</th>
                 <td></td>
@@ -30,6 +32,8 @@
                     <td>@item.Id</td>
                     <td>@item.AuthorName</td>
                     <td>@item.Title</td>
+                    <td>@item.GenreName</td>
+                    <td>@item.Img</td>
                     <td>@item.Pages</td>
                     <td>@item.Price</td>
                     <td>@*@Html.ActionLink("Редактировать","Edit", new { id = item.Id }, null)*@</td>

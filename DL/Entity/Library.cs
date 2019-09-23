@@ -16,6 +16,7 @@ namespace DL.Entity
         public virtual DbSet<Books> Books { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<UsersBooks> UsersBooks { get; set; }
+        public virtual DbSet<Genre> Genre { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

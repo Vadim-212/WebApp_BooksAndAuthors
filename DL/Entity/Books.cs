@@ -15,6 +15,8 @@ namespace DL.Entity
         [Required]
         [StringLength(150)]
         public string Title { get; set; }
+        public int GenreId { get; set; }
+        public byte[] Image { get; set; }
 
         public int? Pages { get; set; }
 

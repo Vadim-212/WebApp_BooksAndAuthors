@@ -15,15 +15,23 @@ namespace WebApplication1.Controllers
     {
         IBookService bookService;
         IAuthorService authorService;
-        public BookController(IBookService serv, IAuthorService serv2)
+        IGenreService genreService;
+        public BookController(IBookService serv, IAuthorService serv2,IGenreService serv3)
         {
             bookService = serv;
             authorService = serv2;
+            genreService = serv3;
         }
 
         public ActionResult Index()
         {
-            return View(AutoMapper<IEnumerable<BookBM>, List<BookModel>>.Map(bookService.GetBooks));
+            List<BookModel> books = AutoMapper<IEnumerable<BookBM>, List<BookModel>>.Map(bookService.GetBooks);
+            foreach(var item in books)
+            {
+                item.AuthorName = authorService.GetAuthor(item.AuthorId).FirstName + " " + authorService.GetAuthor(item.AuthorId).LastName;
+                item.GenreName = genreService.GetGenre(item.GenreId).Name;
+            }
+            return View(books);
         }
 
         public ActionResult CreateEdit(int? id=0)

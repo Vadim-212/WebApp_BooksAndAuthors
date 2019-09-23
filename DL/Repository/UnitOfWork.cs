@@ -14,6 +14,7 @@ namespace DL.Repository
         private BookRepository bookRepository;
         private UserRepository userRepository;
         private UsersBooksRepository usersBooksRepository;
+        private GenreRepository genreRepository;
         private bool disposed = false;
 
         public UnitOfWork(Library db)
@@ -57,6 +58,16 @@ namespace DL.Repository
                 if (usersBooksRepository == null)
                     usersBooksRepository = new UsersBooksRepository(db);
                 return usersBooksRepository;
+            }
+        }
+
+        public IRepository<Genre> Genre
+        {
+            get
+            {
+                if (genreRepository == null)
+                    genreRepository = new GenreRepository(db);
+                return genreRepository;
             }
         }
         

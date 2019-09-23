@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 
@@ -12,6 +13,10 @@ namespace WebApplication1.Models
         public int AuthorId { get; set; }
 
         public string AuthorName { get; set; }
+        public int GenreId { get; set; }
+        public string GenreName { get; set; }
+        public byte[] Image { get; set; }
+        public Image Img { get; set; }
 
         public string Title { get; set; }
 

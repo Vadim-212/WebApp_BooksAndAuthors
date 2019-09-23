@@ -13,6 +13,7 @@ namespace DL.Repository
         IRepository<Books> Books { get; }
         IRepository<Users> Users { get; }
         IRepository<UsersBooks> UsersBooks { get; }
+        IRepository<Genre> Genre { get; }
         void Save();
     }
 }
