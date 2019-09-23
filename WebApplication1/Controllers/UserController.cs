@@ -15,6 +15,10 @@ namespace WebApplication1.Controllers
             List<Users> users;
             using (Library db = new Library())
             {
+                if (Request.IsAjaxRequest())
+                {
+                    return Json(db.UsersBooks.ToList(), JsonRequestBehavior.AllowGet);
+                }
                 users = db.Users.ToList();
             }
             return View(users);
@@ -101,6 +105,19 @@ namespace WebApplication1.Controllers
                 db.SaveChanges();
             }
             return Redirect("~/User/Index");
+        }
+        
+        public ActionResult ShowHistory(int id)
+        {
+            List<UsersBooks> usersBooks;
+            using (Library db = new Library())
+            {
+                usersBooks = db.UsersBooks.Where(x => x.UserId == id).ToList();
+                foreach (var item in usersBooks)
+                    item.Books = null;
+            }
+            return PartialView("Partial/_UserOrdersHistoryPartial", usersBooks);
+            //return Json(usersBooks, JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -1,11 +1,12 @@
 ﻿$(document).ready(function()
 {
-    $(`#button1`).on(`click`,() =>
+    $(`.show-history-link`).on(`click`, function(e)
     {
+        e.preventDefault()
         $.ajax(
             {
                 method: `GET`,
-                url: `/UsersBooks/Index`,
+                url: $(this).attr(`href`),
                 success: (data,textStatus,jqXHR) =>
                 {
                     console.log(data)

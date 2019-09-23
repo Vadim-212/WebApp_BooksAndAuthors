@@ -1,4 +1,5 @@
-﻿<h2>@ViewBag.CurrentUserHistoryName</h2>
+﻿@model IEnumerable<WebApplication1.Entity.UsersBooks>
+<h2>@ViewBag.CurrentUserHistoryName</h2>
 
 <table class="table">
     <thead>
@@ -10,15 +11,15 @@
         <th>Return Date</th>
     </thead>
     <tbody>
-        @foreach(var item in ViewBag.OrdersList)
+        @foreach(var item in Model)
         {
             <tr>
-                <td>Id</td>
-                <td>User</td>
-                <td>Book</td>
-                <td>Issue Date</td>
-                <td>Time</td>
-                <td>Return Date</td>
+                <td>item.Id</td>
+                <td>item.UserId</td>
+                <td>item.BookId</td>
+                <td>item.IssueDate</td>
+                <td>item.Time</td>
+                <td>item.ReturnDate</td>
             </tr>
         }
     </tbody>

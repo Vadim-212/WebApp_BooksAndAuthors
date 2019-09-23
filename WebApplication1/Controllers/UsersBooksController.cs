@@ -17,10 +17,6 @@ namespace WebApplication1.Controllers
             List<UsersWithBooks> usersWithBooks = new List<UsersWithBooks>();
             using (Library db = new Library())
             {
-                if (Request.IsAjaxRequest())
-                {
-                    return PartialView("_UserOrdersHistoryPartial", db.UsersBooks.ToList());
-                }
                 var usersBooks = db.UsersBooks.ToList();
                 foreach(var item in usersBooks)
                 {

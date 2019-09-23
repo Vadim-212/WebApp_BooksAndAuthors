@@ -17,18 +17,22 @@
             <th>Email</th>
         </thead>
         <tbody>
-            @foreach(var item in Model)
+            @foreach (var item in Model)
             {
                 <tr>
                     <td>@item.Id</td>
                     <td>@item.Name</td>
                     <td>@item.Email</td>
                     @*<td>@Html.ActionLink("Редактировать","Edit", new { id = item.Id })</td>*@
-                    <td>@Html.ActionLink("Редактировать","CreateEdit", new { id = item.Id })</td>
-                    <td>@Html.ActionLink("Удалить","Delete", new { id = item.Id })</td>
+                    <td>@Html.ActionLink("Редактировать", "CreateEdit", new { id = item.Id })</td>
+                    <td>@Html.ActionLink("Удалить", "Delete", new { id = item.Id })</td>
+                    <td>@Html.ActionLink("Показать историю заказов", "ShowHistory", new { id = item.Id }, new { @class = "show-history-link" })</td>
                 </tr>
             }
         </tbody>
     </table>
     @*<button id="button1">123</button>*@
+    <div>
+        @Html.Partial("Partial/_UserOrdersHistoryPartial")
+    </div>
 </div>
