@@ -48,7 +48,9 @@ namespace DL.Repository
 
         public void Update(Users item)
         {
-            db.Entry(item).State = EntityState.Modified;
+            //db.Entry(item).State = EntityState.Modified;
+            db.Users.Where(x => x.Id == item.Id).FirstOrDefault().Name = item.Name;
+            db.Users.Where(x => x.Id == item.Id).FirstOrDefault().Email = item.Email;
         }
     }
 }

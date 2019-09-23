@@ -47,7 +47,11 @@ namespace DL.Repository
 
         public void Update(Books item)
         {
-            db.Entry(item).State = EntityState.Modified;
+            //db.Entry(item).State = EntityState.Modified;
+            db.Books.Where(x => x.Id == item.Id).FirstOrDefault().AuthorId = item.AuthorId;
+            db.Books.Where(x => x.Id == item.Id).FirstOrDefault().Title = item.Title;
+            db.Books.Where(x => x.Id == item.Id).FirstOrDefault().Pages = item.Pages;
+            db.Books.Where(x => x.Id == item.Id).FirstOrDefault().Price = item.Price;
         }
     }
 }

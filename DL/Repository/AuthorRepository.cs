@@ -48,7 +48,9 @@ namespace DL.Repository
 
         public void Update(Authors item)
         {
-            db.Entry(item).State = EntityState.Modified;
+            //db.Entry(item).State = EntityState.Modified;
+            db.Authors.Where(x => x.Id == item.Id).FirstOrDefault().FirstName = item.FirstName;
+            db.Authors.Where(x => x.Id == item.Id).FirstOrDefault().LastName = item.LastName;
         }
     }
 }
