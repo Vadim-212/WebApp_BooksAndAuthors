@@ -15,6 +15,7 @@ namespace WebApplication1.Modules
             Bind<IBookService>().To<BookService>();
             Bind<IUserBookService>().To<UserBookService>();
             Bind<IUserService>().To<UserService>();
+            Bind<IGenreService>().To<GenreService>();
         }
     }
 }

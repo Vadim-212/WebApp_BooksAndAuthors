@@ -233,6 +233,7 @@
     <Compile Include="Models\AuthorBook.cs" />
     <Compile Include="Models\AuthorModel.cs" />
     <Compile Include="Models\BookModel.cs" />
+    <Compile Include="Models\GenreModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />

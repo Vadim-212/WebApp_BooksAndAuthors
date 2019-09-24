@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Drawing;
 using System.Linq;
 using System.Web;
@@ -16,7 +17,11 @@ namespace WebApplication1.Models
         public int GenreId { get; set; }
         public string GenreName { get; set; }
         public byte[] Image { get; set; }
+        public string ImagePath { get; set; }
         public Image Img { get; set; }
+        [Required]
+        [Display(Name = "Upload File")]
+        public HttpPostedFileBase ImgAttached { get; set; }
 
         public string Title { get; set; }
 

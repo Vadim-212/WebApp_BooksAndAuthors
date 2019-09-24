@@ -8,6 +8,8 @@ using BL.BuisnessModel;
 using BL.Service;
 using DL.Entity;
 using WebApplication1.Models;
+using System.IO;
+using System.Drawing;
 
 namespace WebApplication1.Controllers
 {
@@ -38,7 +40,9 @@ namespace WebApplication1.Controllers
         {
             BookModel book = new BookModel();
             List<AuthorModel> authors = AutoMapper<IEnumerable<AuthorBM>, List<AuthorModel>>.Map(authorService.GetAuthors);
+            List<GenreModel> genres = AutoMapper<IEnumerable<GenreBM>, List<GenreModel>>.Map(genreService.GetGenres);
             ViewBag.AuthorId = new SelectList(authors, "Id", "FirstName");
+            ViewBag.GenreId = new SelectList(genres, "Id", "Name");
             if (id != 0)
             {
                 book = AutoMapper<BookBM, BookModel>.Map(bookService.GetBook,(int)id);
@@ -47,9 +51,23 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateEdit(BookModel book)
+        public ActionResult CreateEdit(BookModel book, HttpPostedFileBase imageBook = null)
         {
             BookBM newBook = AutoMapper<BookModel, BookBM>.Map(book);
+
+            
+            byte[] imageData = null;
+            var im = imageBook;
+            if (imageBook != null)
+            {
+                using (var binaryReader = new BinaryReader(imageBook.InputStream))
+                {
+                    imageData = binaryReader.ReadBytes(imageBook.ContentLength);
+                }
+                newBook.Image = imageData;
+            }
+
+
             bookService.CreateOrUpdate(newBook);
             bookService.Save();
             return RedirectToAction("Index");

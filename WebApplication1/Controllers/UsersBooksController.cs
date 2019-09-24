@@ -26,7 +26,12 @@ namespace WebApplication1.Controllers
 
         public ActionResult Index()
         {
-            return View(AutoMapper<IEnumerable<UsersBooksBM>, List<AuthorBook>>.Map(userBookService.GetUsersBooks));
+            List<AuthorBook> usersBooks = AutoMapper<IEnumerable<UsersBooksBM>, List<AuthorBook>>.Map(userBookService.GetUsersBooks);
+            foreach(var item in usersBooks)
+            {
+                item.BooksName = bookService.GetBook(item.BooksId).Title;
+            }
+            return View(usersBooks);
         }
 
         public ActionResult CreateEdit(int? id = 0)

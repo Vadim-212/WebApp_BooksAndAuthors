@@ -6,7 +6,7 @@
 
 <h2>CreateAndEdit</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("CreateEdit","Book",FormMethod.Post,new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -21,6 +21,14 @@
             <div class="col-md-10">
                 @Html.DropDownListFor(md => md.AuthorId, ViewBag.AuthorId as SelectList, new { @class = "btn btn-default dropdown-toggle form-control" })
                 @Html.ValidationMessageFor(model => model.AuthorId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GenreName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(md => md.GenreId, ViewBag.GenreId as SelectList, new { @class = "btn btn-default dropdown-toggle form-control" })
+                @Html.ValidationMessageFor(model => model.GenreId, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -45,6 +53,17 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })*@
+                @*@Html.TextBoxFor(m => m.ImgAttached, new { type = "file", placeholder = Html.DisplayNameFor(m => m.ImgAttached), @class = "form-control" })*@
+                <input name="imageBook" type="file" id="imageBook" class="form-control" />
+                @*<input type="file" name="ImgAttached" id="ImgAttached"/>*@
+                @*@Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })*@
             </div>
         </div>
 
