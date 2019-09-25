@@ -55,3 +55,15 @@ body
 	height: 250px;
 	padding: 0 5px
 }
+
+.notify-link
+{
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.required-field
+{
+    color: red;
+    font-weight: bold;
+}

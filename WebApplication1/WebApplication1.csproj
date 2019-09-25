@@ -362,6 +362,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\User\Partial\_UserOrdersHistoryPartial.cshtml" />
     <Content Include="Views\UsersBooks\_BooksImageGalleryPartial.cshtml" />
+    <Content Include="Views\Book\Survey.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

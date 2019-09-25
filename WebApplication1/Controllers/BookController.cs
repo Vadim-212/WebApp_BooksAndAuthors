@@ -216,5 +216,10 @@ namespace WebApplication1.Controllers
             }
             return Redirect("~/Book/Index");
         }
+
+        public ActionResult Survey()
+        {
+            return View();
+        }
     }
 }
