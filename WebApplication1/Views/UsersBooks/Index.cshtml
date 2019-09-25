@@ -21,7 +21,7 @@
             <th>Return Date</th>
         </thead>
         <tbody>
-            @foreach(var item in Model)
+            @foreach(var item in Model.OrderBy(x=>x.IssueDate))
             {
                 <tr>
                     <td>@item.Id</td>
