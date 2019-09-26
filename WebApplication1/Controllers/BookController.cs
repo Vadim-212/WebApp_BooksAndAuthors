@@ -219,7 +219,72 @@ namespace WebApplication1.Controllers
 
         public ActionResult Survey()
         {
-            return View();
+            Surveys survey = new Surveys();
+            return View(survey);
+        }
+        
+        [HttpPost]
+        public ActionResult Survey(Surveys obj)
+        {
+            string ageRadioValue = Request.Params["surveyAgeRadios"];
+            obj.AgeValue = int.Parse(ageRadioValue);
+
+            string readingRadioValue = Request.Params["surveyBookReadRadios"];
+            obj.ReadingValue = int.Parse(readingRadioValue);
+
+            obj.FantasticsGenre = 0;
+            obj.DetectiveGenre = 0;
+            obj.HorrorGenre = 0;
+            obj.NovelGenre = 0;
+            obj.ClassicGenre = 0;
+            obj.ScienceGenre = 0;
+            obj.ComputersGenre = 0;
+            obj.ArtGenre = 0;
+            obj.AdventureGenre = 0;
+            obj.BuisnessGenre = 0;
+
+            string genresCheckboxesValues = Request.Params["bookGenreChecks"];
+            string[] cbValues = genresCheckboxesValues.Split(',');
+            foreach(var item in cbValues)
+            {
+                switch(item)
+                {
+                    case "1":
+                        obj.FantasticsGenre = 1;
+                        break;
+                    case "2":
+                        obj.DetectiveGenre = 1;
+                        break;
+                    case "3":
+                        obj.HorrorGenre = 1;
+                        break;
+                    case "4":
+                        obj.NovelGenre = 1;
+                        break;
+                    case "5":
+                        obj.ClassicGenre = 1;
+                        break;
+                    case "6":
+                        obj.ScienceGenre = 1;
+                        break;
+                    case "7":
+                        obj.ComputersGenre = 1;
+                        break;
+                    case "8":
+                        obj.ArtGenre = 1;
+                        break;
+                    case "9":
+                        obj.AdventureGenre = 1;
+                        break;
+                    case "10":
+                        obj.BuisnessGenre = 1;
+                        break;
+                }
+            }
+
+            obj.AuthorsSentenceText = Request.Form["authorsSentenceInp"];
+            obj.SentenceText = Request.Form["sentenceInp"];
+            return RedirectToAction("Index");
         }
     }
 }

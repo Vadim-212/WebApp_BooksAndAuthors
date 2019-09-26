@@ -1,118 +1,127 @@
-﻿
+﻿@model WebApplication1.Entity.Surveys
 @{
     ViewBag.Title = "Опрос";
 }
 
 <h2>Опрос "Какую книгу я бы хотел взять в библиотеке?"</h2>
 
-<div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div id="form-horizontal survey-div">
     <div>
-        <label class="font-weight-bold">Сколько Вам лет? <span class="required-field">*</span></label>
+        <label class="font-weight-bold">1. Сколько Вам лет? <span class="required-field">*</span></label>
         <div>
             <div class="custom-control custom-radio">
-                <input type="radio" id="age-radio-1" name="surveyAgeRadios" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">меньше 18</label>
+                <input type="radio" id="age-radio-1" name="surveyAgeRadios" class="custom-control-input" value="1">
+                <label class="custom-control-label" for="age-radio-1">меньше 18</label>
             </div>
             <div class="custom-control custom-radio">
-                <input type="radio" id="age-radio-2" name="surveyAgeRadios" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">18-25</label>
+                <input type="radio" id="age-radio-2" name="surveyAgeRadios" class="custom-control-input" value="2">
+                <label class="custom-control-label" for="age-radio-2">18-25</label>
             </div>
             <div class="custom-control custom-radio">
-                <input type="radio" id="age-radio-3" name="surveyAgeRadios" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">25-40</label>
+                <input type="radio" id="age-radio-3" name="surveyAgeRadios" class="custom-control-input" value="3">
+                <label class="custom-control-label" for="age-radio-3">25-40</label>
             </div>
             <div class="custom-control custom-radio">
-                <input type="radio" id="age-radio-4" name="surveyAgeRadios" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">40-60</label>
+                <input type="radio" id="age-radio-4" name="surveyAgeRadios" class="custom-control-input" value="4">
+                <label class="custom-control-label" for="age-radio-4">40-60</label>
             </div>
             <div class="custom-control custom-radio">
-                <input type="radio" id="age-radio-5" name="surveyAgeRadios" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">60+</label>
+                <input type="radio" id="age-radio-5" name="surveyAgeRadios" class="custom-control-input" value="5">
+                <label class="custom-control-label" for="age-radio-5">60+</label>
             </div>
         </div>
     </div>
     <div>
-        <label class="font-weight-bold">Как часто Вы читаете книги? <span class="required-field">*</span></label>
+        <label class="font-weight-bold">2. Как часто Вы читаете книги? <span class="required-field">*</span></label>
         <div>
             <div class="custom-control custom-radio">
-                <input type="radio" id="book-read-radio-1" name="surveyBookReadRadios" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">не читаю книги</label>
+                <input type="radio" id="book-read-radio-1" name="surveyBookReadRadios" class="custom-control-input" value="1">
+                <label class="custom-control-label" for="book-read-radio-1">не читаю книги</label>
             </div>
             <div class="custom-control custom-radio">
-                <input type="radio" id="book-read-radio-2" name="surveyBookReadRadios" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">читаю несколько часов в месяц</label>
+                <input type="radio" id="book-read-radio-2" name="surveyBookReadRadios" class="custom-control-input" value="2">
+                <label class="custom-control-label" for="book-read-radio-2">читаю несколько часов в месяц</label>
             </div>
             <div class="custom-control custom-radio">
-                <input type="radio" id="book-read-radio-3" name="surveyBookReadRadios" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">читаю несколько часов раз в неделю</label>
+                <input type="radio" id="book-read-radio-3" name="surveyBookReadRadios" class="custom-control-input" value="3">
+                <label class="custom-control-label" for="book-read-radio-3">читаю несколько часов раз в неделю</label>
             </div>
             <div class="custom-control custom-radio">
-                <input type="radio" id="book-read-radio-4" name="surveyBookReadRadios" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">читаю по несколько часов каждый день</label>
+                <input type="radio" id="book-read-radio-4" name="surveyBookReadRadios" class="custom-control-input" value="4">
+                <label class="custom-control-label" for="book-read-radio-4">читаю по несколько часов каждый день</label>
             </div>
         </div>
     </div>
     <div>
-        <label class="font-weight-bold">Какой жанр книг Вы предпочитаете? <span class="required-field">*</span></label>
+        <label class="font-weight-bold">3. Какой жанр книг Вы предпочитаете? <span class="required-field">*</span></label>
         <div>
             <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="genre-check-1" name="bookGenreChecks">
-                <label class="custom-control-label" for="customCheck1">Фантастика</label>
+                <input type="checkbox" class="custom-control-input" id="genre-check-1" name="bookGenreChecks" value="1">
+                <label class="custom-control-label" for="genre-check-1">Фантастика</label>
             </div>
             <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="genre-check-2" name="bookGenreChecks">
-                <label class="custom-control-label" for="customCheck1">Детектив</label>
+                <input type="checkbox" class="custom-control-input" id="genre-check-2" name="bookGenreChecks" value="2">
+                <label class="custom-control-label" for="genre-check-2">Детектив</label>
             </div>
             <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="genre-check-3" name="bookGenreChecks">
-                <label class="custom-control-label" for="customCheck1">Ужасы</label>
+                <input type="checkbox" class="custom-control-input" id="genre-check-3" name="bookGenreChecks" value="3">
+                <label class="custom-control-label" for="genre-check-3">Ужасы</label>
             </div>
             <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="genre-check-4" name="bookGenreChecks">
-                <label class="custom-control-label" for="customCheck1">Роман</label>
+                <input type="checkbox" class="custom-control-input" id="genre-check-4" name="bookGenreChecks" value="4">
+                <label class="custom-control-label" for="genre-check-4">Роман</label>
             </div>
             <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="genre-check-5" name="bookGenreChecks">
-                <label class="custom-control-label" for="customCheck1">Классика</label>
+                <input type="checkbox" class="custom-control-input" id="genre-check-5" name="bookGenreChecks" value="5">
+                <label class="custom-control-label" for="genre-check-5">Классика</label>
             </div>
             <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="genre-check-6" name="bookGenreChecks">
-                <label class="custom-control-label" for="customCheck1">Наука</label>
+                <input type="checkbox" class="custom-control-input" id="genre-check-6" name="bookGenreChecks" value="6">
+                <label class="custom-control-label" for="genre-check-6">Наука</label>
             </div>
             <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="genre-check-7" name="bookGenreChecks">
-                <label class="custom-control-label" for="customCheck1">Компьютеры</label>
+                <input type="checkbox" class="custom-control-input" id="genre-check-7" name="bookGenreChecks" value="7">
+                <label class="custom-control-label" for="genre-check-7">Компьютеры</label>
             </div>
             <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="genre-check-8" name="bookGenreChecks">
-                <label class="custom-control-label" for="customCheck1">Искусство</label>
+                <input type="checkbox" class="custom-control-input" id="genre-check-8" name="bookGenreChecks" value="8">
+                <label class="custom-control-label" for="genre-check-8">Искусство</label>
             </div>
             <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="genre-check-9" name="bookGenreChecks">
-                <label class="custom-control-label" for="customCheck1">Приключения</label>
+                <input type="checkbox" class="custom-control-input" id="genre-check-9" name="bookGenreChecks" value="9">
+                <label class="custom-control-label" for="genre-check-9">Приключения</label>
             </div>
             <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="genre-check-10" name="bookGenreChecks">
-                <label class="custom-control-label" for="customCheck1">Бизнес-книги</label>
+                <input type="checkbox" class="custom-control-input" id="genre-check-10" name="bookGenreChecks" value="10">
+                <label class="custom-control-label" for="genre-check-10">Бизнес-книги</label>
             </div>
         </div>
     </div>
     <div>
-        <label class="font-weight-bold">Напишите, каких авторов вы бы хотели увидеть в библиотеке</label>
+        <label class="font-weight-bold">4. Напишите, каких авторов вы бы хотели увидеть в библиотеке</label>
         <div class="input-group">
-            <textarea id="survey-authors-text-inp" class="form-control"></textarea>
+            <textarea id="survey-authors-text-inp" name="authorsSentenceInp" class="form-control" maxlength="350"></textarea>
         </div>
 
     </div>
     <div>
-        <label class="font-weight-bold">Если у Вас есть пожелания/жалобы к библиотеке, можете написать их в поле ниже</label>
+        <label class="font-weight-bold">5. Если у Вас есть пожелания/жалобы к библиотеке, можете написать их в поле ниже</label>
         <div class="input-group">
-            <textarea id="survey-message-text-inp" class="form-control"></textarea>
+            <textarea id="survey-message-text-inp" name="sentenceInp" class="form-control" maxlength="350"></textarea>
         </div>
     </div>
 
 
-    <div>
-        <input id="survey-submit-btn" type="submit" value="Отправить"/>
+    @*<div>
+        <input id="survey-submit-btn" type="submit" value="Отправить" class="btn btn-default btn-light"/>
+    </div>*@
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input id="survey-submit-btn" type="submit" value="Create" class="btn btn-default btn-light" />
+        </div>
     </div>
 </div>
+}

@@ -1,17 +1,12 @@
 ﻿$(document).ready(function()
 {
-    $(`.show-history-link`).on(`click`, function(e)
+    $(`#survey-submit-btn`).on(`click`, function (e)
     {
-        e.preventDefault()
-        $.ajax(
-            {
-                method: `GET`,
-                url: $(this).attr(`href`),
-                success: (data,textStatus,jqXHR) =>
-                {
-                    console.log(data)
-                } 
-            }
-        )
+        if ($(`[name=surveyAgeRadios]:checked`).length == 0)
+            return;
+        if ($(`[name=surveyBookReadRadios]:checked`).length == 0)
+            return;
+        if ($(`[name=bookGenreChecks]:checked`).length == 0)
+            return;
     })
 })

@@ -212,6 +212,7 @@
     <Compile Include="Entity\BookWithAuthor.cs" />
     <Compile Include="Entity\HelpClass.cs" />
     <Compile Include="Entity\Library.cs" />
+    <Compile Include="Entity\Surveys.cs" />
     <Compile Include="Entity\Users.cs" />
     <Compile Include="Entity\UsersBooks.cs" />
     <Compile Include="Entity\UsersWithBooks.cs" />

@@ -67,3 +67,8 @@ body
     color: red;
     font-weight: bold;
 }
+
+#survey-div>div>div
+{
+    margin-left: 150px;
+}
