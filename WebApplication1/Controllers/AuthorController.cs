@@ -36,8 +36,7 @@ namespace WebApplication1.Controllers
                           join au in db.Authors on b.AuthorId equals au.Id
                           select new { b.Price, au.Id, }).GroupBy(p => p.Id).ToList();
                 //eb.ForEach(x => { o.Add(new HelpClass() { Id = x.Key,Price=x}) })
-
-                int n = 1;
+                
              }
             return View(authors);
         }

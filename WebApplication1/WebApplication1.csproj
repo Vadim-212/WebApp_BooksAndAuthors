@@ -27,6 +27,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -231,6 +232,10 @@
     <Compile Include="Migrations\201908281244501_Users_UsersBooks_Update.Designer.cs">
       <DependentUpon>201908281244501_Users_UsersBooks_Update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909281152107_AddSurveys.cs" />
+    <Compile Include="Migrations\201909281152107_AddSurveys.Designer.cs">
+      <DependentUpon>201909281152107_AddSurveys.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -381,6 +386,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908281244501_Users_UsersBooks_Update.resx">
       <DependentUpon>201908281244501_Users_UsersBooks_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909281152107_AddSurveys.resx">
+      <DependentUpon>201909281152107_AddSurveys.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

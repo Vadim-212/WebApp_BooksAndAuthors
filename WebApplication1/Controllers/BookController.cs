@@ -227,9 +227,19 @@ namespace WebApplication1.Controllers
         public ActionResult Survey(Surveys obj)
         {
             string ageRadioValue = Request.Params["surveyAgeRadios"];
+            if (ageRadioValue == null)
+            {
+                ViewBag.error = "Необходимо ответить на 1 пункт";
+                return View();
+            }
             obj.AgeValue = int.Parse(ageRadioValue);
 
             string readingRadioValue = Request.Params["surveyBookReadRadios"];
+            if (readingRadioValue == null) 
+            {
+                ViewBag.error = "Необходимо ответить на 2 пункт";
+                return View(obj);
+            }
             obj.ReadingValue = int.Parse(readingRadioValue);
 
             obj.FantasticsGenre = 0;
@@ -244,6 +254,11 @@ namespace WebApplication1.Controllers
             obj.BuisnessGenre = 0;
 
             string genresCheckboxesValues = Request.Params["bookGenreChecks"];
+            if(genresCheckboxesValues == null)
+            {
+                ViewBag.error = "Необходимо ответить на 3 пункт";
+                return View(obj);
+            }
             string[] cbValues = genresCheckboxesValues.Split(',');
             foreach(var item in cbValues)
             {
@@ -284,6 +299,11 @@ namespace WebApplication1.Controllers
 
             obj.AuthorsSentenceText = Request.Form["authorsSentenceInp"];
             obj.SentenceText = Request.Form["sentenceInp"];
+            using (Library db = new Library())
+            {
+                db.Surveys.Add(obj);
+                db.SaveChanges();
+            }
             return RedirectToAction("Index");
         }
     }

@@ -3,12 +3,20 @@
     ViewBag.Title = "Опрос";
 }
 
+@if (ViewBag.error != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.error
+    </div>
+}
+
 <h2>Опрос "Какую книгу я бы хотел взять в библиотеке?"</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 <div id="form-horizontal survey-div">
+    <span class="required-field">*</span> - обязательные поля
     <div>
         <label class="font-weight-bold">1. Сколько Вам лет? <span class="required-field">*</span></label>
         <div>
@@ -116,12 +124,20 @@
 
 
     @*<div>
-        <input id="survey-submit-btn" type="submit" value="Отправить" class="btn btn-default btn-light"/>
-    </div>*@
+            <input id="survey-submit-btn" type="submit" value="Отправить" class="btn btn-default btn-light"/>
+        </div>*@
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input id="survey-submit-btn" type="submit" value="Create" class="btn btn-default btn-light" />
         </div>
     </div>
+    <script type="text/javascript">
+        let ageValue = @Model.AgeValue, readingValue = @Model.ReadingValue
+        if (ageValue != null)
+            $($(`[name=surveyAgeRadios]`)[ageValue - 1]).trigger(`click`)
+        if (readingValue != null)
+            $($(`[name=surveyBookReadRadios]`)[readingValue - 1]).trigger(`click`)
+
+    </script>
 </div>
 }
