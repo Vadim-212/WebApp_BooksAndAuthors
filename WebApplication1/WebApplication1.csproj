@@ -225,11 +225,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UsersBooksController.cs" />
-    <Compile Include="Migrations\201909231458291_AddGenre_GenreAndImageInBooks.cs" />
-    <Compile Include="Migrations\201909231458291_AddGenre_GenreAndImageInBooks.Designer.cs">
-      <DependentUpon>201909231458291_AddGenre_GenreAndImageInBooks.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AuthorBook.cs" />
     <Compile Include="Models\AuthorModel.cs" />
     <Compile Include="Models\BookModel.cs" />
@@ -392,11 +387,6 @@
       <Project>{DFCEDD27-85EF-43F6-8DEC-2E545638569F}</Project>
       <Name>DL</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201909231458291_AddGenre_GenreAndImageInBooks.resx">
-      <DependentUpon>201909231458291_AddGenre_GenreAndImageInBooks.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
