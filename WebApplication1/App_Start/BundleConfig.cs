@@ -10,7 +10,7 @@ namespace WebApplication1
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
-                        "~/Scripts/script.js",
+                        "~/Scripts/script.js?v=1",
                         "~/Scripts/App/script.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -29,6 +29,12 @@ namespace WebApplication1
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
                       "~/Content/style.css"));
+            bundles.Add(new ScriptBundle("~/author/scripts").Include(
+                "~/Scripts/author_script.js"));
+            bundles.Add(new ScriptBundle("~/book/scripts").Include(
+                "~/Scripts/book_script.js"));
+            bundles.Add(new ScriptBundle("~/usersbooks/scripts").Include(
+                "~/Scripts/usersbooks_script.js"));
         }
     }
 }

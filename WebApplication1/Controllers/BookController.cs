@@ -79,5 +79,19 @@ namespace WebApplication1.Controllers
             bookService.Save();
             return RedirectToAction("Index");
         }
+        public ActionResult GetBooks()
+        {
+            List<BookModel> books = AutoMapper<IEnumerable<BookBM>, List<BookModel>>.Map(bookService.GetBooks);
+            foreach (var item in books)
+            {
+                item.Image = null;
+            }
+            return Json(books, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult GetGenres()
+        {
+            List<GenreModel> genres = AutoMapper<IEnumerable<GenreBM>, List<GenreModel>>.Map(genreService.GetGenres);
+            return Json(genres, JsonRequestBehavior.AllowGet);
+        }
     }
 }

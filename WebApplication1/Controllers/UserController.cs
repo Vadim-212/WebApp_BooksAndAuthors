@@ -52,5 +52,10 @@ namespace WebApplication1.Controllers
             userService.Save();
             return RedirectToAction("Index");
         }
+        public ActionResult GetUsers()
+        {
+            List<UserModel> users = AutoMapper<IEnumerable<UserBM>, List<UserModel>>.Map(userService.GetUsers);
+            return Json(users, JsonRequestBehavior.AllowGet);
+        }
     }
 }
