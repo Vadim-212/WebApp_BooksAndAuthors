@@ -1,12 +1,11 @@
 ﻿$(document).ready(function()
 {
-    if ($(`#Id`).val() != "0")
+    if ($(`#Id`).val() != 0)
     {
         $.ajax({
             method: `GET`,
-            url: `/Author/GetAuthor/`,
-            data: parseInt($(`#Id`).val(), 10),
-            success: (data,textStatus,jqXHR) =>
+            url: `/Author/GetAuthor/${parseInt($(`#Id`).val(), 10)}`,
+            success: (data, textStatus, jqXHR) =>
             {
                 $(`#FirstName`).val(data.FirstName)
                 $(`#LastName`).val(data.LastName)
@@ -27,7 +26,12 @@
         $.ajax({
             method: `POST`,
             url: `/Author/CreateEditAjax/`,
-            data: { obj: JSON.stringify(obj) }
+            data: { obj: JSON.stringify(obj) },
+            success: ()=>
+            {
+                location.assign(`/Author/Index`)
+            }
         })
+
     })
 })

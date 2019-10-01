@@ -10,6 +10,7 @@ using DL.Entity;
 using WebApplication1.Models;
 using System.IO;
 using System.Drawing;
+using Newtonsoft.Json;
 
 namespace WebApplication1.Controllers
 {
@@ -92,6 +93,20 @@ namespace WebApplication1.Controllers
         {
             List<GenreModel> genres = AutoMapper<IEnumerable<GenreBM>, List<GenreModel>>.Map(genreService.GetGenres);
             return Json(genres, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult GetBook(int id)
+        {
+            BookModel book = AutoMapper<BookBM, BookModel>.Map(bookService.GetBook, id);
+            return Json(book, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        public ActionResult CreateEditAjax(string obj)
+        {
+            BookModel book = JsonConvert.DeserializeObject<BookModel>(obj);
+            BookBM oldBook = AutoMapper<BookModel, BookBM>.Map(book);
+            bookService.CreateOrUpdate(oldBook);
+            bookService.Save();
+            return RedirectToActionPermanent("Index", "Book");
         }
     }
 }

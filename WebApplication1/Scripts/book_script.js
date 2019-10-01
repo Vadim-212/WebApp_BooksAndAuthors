@@ -21,4 +21,42 @@
 
         }
     })
+
+    if ($(`#Id`).val() != 0)
+    {
+        $.ajax({
+            method: `GET`,
+            url: `/Book/GetBook/${parseInt($(`#Id`).val(), 10)}`,
+            success: (data, textStatus, jqXHR) =>
+            {
+                $(`#AuthorId`).val(data.AuthorId)
+                $(`#GenreId`).val(data.GenreId)
+                $(`#Title`).val(data.Title)
+                $(`#Pages`).val(data.Pages)
+                $(`#Price`).val(data.Price)
+            }
+
+        })
+    }
+
+    $(`#create-edit-book-btn`).on(`click`,(e)=>
+    {
+        e.preventDefault()
+        let obj = {
+            Id: $(`#Id`).val(),
+            AuthorId: $(`#AuthorId`).val(),
+            GenreId: $(`#GenreId`).val(),
+            Title: $(`#Title`).val(),
+            Pages: $(`#Pages`).val(),
+            Price: $(`#Price`).val()
+        }
+        $.ajax({
+            method: `POST`,
+            url: `/Book/CreateEditAjax/`,
+            data: { obj: JSON.stringify(obj) },
+            success: () => {
+                location.assign(`/Book/Index`)
+            }
+        })
+    })
 })
