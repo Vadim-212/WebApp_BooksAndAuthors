@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using WebApplication1.Models;
 using System.Text;
 using System.Net.Mail;
+using WebApplication1.Helpers;
 
 namespace WebApplication1.Controllers
 {
@@ -22,6 +23,7 @@ namespace WebApplication1.Controllers
             userBookService = serv;
             userService = serv2;
             bookService = serv3;
+            Log4Net.InitLogger();
         }
 
         public ActionResult Index()
@@ -87,6 +89,7 @@ namespace WebApplication1.Controllers
             {
                 userBookService.CreateOrUpdate(busersBooks);
                 userBookService.Save();
+                Log4Net.Log.Info("UserBook create/edit");
                 return RedirectToAction("Index");
             }
             else
@@ -102,6 +105,7 @@ namespace WebApplication1.Controllers
         {
             userBookService.DeleteUserBook(id);
             userBookService.Save();
+            Log4Net.Log.Info("UserBook delete");
             return RedirectToAction("Index");
         }
 
@@ -122,6 +126,7 @@ namespace WebApplication1.Controllers
             byte[] data = Encoding.ASCII.GetBytes(sb.ToString());
 
             string contentType = "text/plain";
+            Log4Net.Log.Info("Download UsersBooks file");
             return File(data, contentType, "users.txt");
         }
 

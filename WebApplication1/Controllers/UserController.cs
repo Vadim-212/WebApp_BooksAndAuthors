@@ -8,6 +8,7 @@ using BL.BuisnessModel;
 using BL.Service;
 using DL.Entity;
 using WebApplication1.Models;
+using WebApplication1.Helpers;
 
 namespace WebApplication1.Controllers
 {
@@ -17,6 +18,7 @@ namespace WebApplication1.Controllers
         public UserController(IUserService serv)
         {
             userService = serv;
+            Log4Net.InitLogger();
         }
 
         public ActionResult Index()
@@ -43,6 +45,7 @@ namespace WebApplication1.Controllers
             UserBM user = AutoMapper<UserModel, UserBM>.Map(model);
             userService.CreateOrUpdate(user);
             userService.Save();
+            Log4Net.Log.Info("User create/edit");
             return RedirectToAction("Index");
         }
 
@@ -50,6 +53,7 @@ namespace WebApplication1.Controllers
         {
             userService.DeleteUser(id);
             userService.Save();
+            Log4Net.Log.Info("User delete");
             return RedirectToAction("Index");
         }
         public ActionResult GetUsers()

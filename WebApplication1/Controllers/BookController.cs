@@ -11,6 +11,7 @@ using WebApplication1.Models;
 using System.IO;
 using System.Drawing;
 using Newtonsoft.Json;
+using WebApplication1.Helpers;
 
 namespace WebApplication1.Controllers
 {
@@ -24,6 +25,7 @@ namespace WebApplication1.Controllers
             bookService = serv;
             authorService = serv2;
             genreService = serv3;
+            Log4Net.InitLogger();
         }
 
         public ActionResult Index()
@@ -71,6 +73,7 @@ namespace WebApplication1.Controllers
 
             bookService.CreateOrUpdate(newBook);
             bookService.Save();
+            Log4Net.Log.Info("Book create/edit");
             return RedirectToAction("Index");
         }
 
@@ -78,6 +81,7 @@ namespace WebApplication1.Controllers
         {
             bookService.DeleteBook(id);
             bookService.Save();
+            Log4Net.Log.Info("Book delete");
             return RedirectToAction("Index");
         }
         public ActionResult GetBooks()
@@ -106,6 +110,7 @@ namespace WebApplication1.Controllers
             BookBM oldBook = AutoMapper<BookModel, BookBM>.Map(book);
             bookService.CreateOrUpdate(oldBook);
             bookService.Save();
+            Log4Net.Log.Info("Book create/edit from Ajax");
             return RedirectToActionPermanent("Index", "Book");
         }
     }

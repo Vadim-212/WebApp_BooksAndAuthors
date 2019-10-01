@@ -26,6 +26,8 @@ namespace WebApplication1
             NinjectModule serviceModule = new ServiceModule("DefaultConnection");
             var kernel = new StandardKernel(serviceModule, Module);
             DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
+
+            log4net.Config.XmlConfigurator.Configure();
         }
     }
 }

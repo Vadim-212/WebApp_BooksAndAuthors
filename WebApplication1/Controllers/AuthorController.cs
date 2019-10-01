@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebApplication1.Models;
 using Newtonsoft.Json;
+using WebApplication1.Helpers;
 
 namespace WebApplication1.Controllers
 {
@@ -17,6 +18,7 @@ namespace WebApplication1.Controllers
         public AuthorController(IAuthorService serv)
         {
             authorService = serv;
+            Log4Net.InitLogger();
         }
         public ActionResult Index()
         {
@@ -36,6 +38,7 @@ namespace WebApplication1.Controllers
             AuthorBM oldAuthor = AutoMapper<AuthorModel, AuthorBM>.Map(author);
             authorService.CreateOrUpdate(oldAuthor);
             authorService.Save();
+            Log4Net.Log.Info("Author create/edit");
             return RedirectToActionPermanent("Index", "Author");
         }
 
@@ -43,6 +46,7 @@ namespace WebApplication1.Controllers
         {
             authorService.DeleteAuthor(id);
             authorService.Save();
+            Log4Net.Log.Info("Author delete");
             return RedirectToAction("Index", "Author");
         }
         public ActionResult GetAuthors()
@@ -62,6 +66,7 @@ namespace WebApplication1.Controllers
             AuthorBM oldAuthor = AutoMapper<AuthorModel, AuthorBM>.Map(author);
             authorService.CreateOrUpdate(oldAuthor);
             authorService.Save();
+            Log4Net.Log.Info("Author create/edit from Ajax");
             return RedirectToActionPermanent("Index", "Author");
         }
     }
