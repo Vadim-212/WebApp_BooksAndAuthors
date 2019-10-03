@@ -21,6 +21,7 @@ namespace WebApplication1.Models
         public string AuthorName { get; set; }
 
         public string BooksName { get; set; }
+        [Required]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd'/'MM'/'yyyy}", ApplyFormatInEditMode = true)]
         public DateTime IssueDate { get; set; }

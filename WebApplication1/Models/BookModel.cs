@@ -23,10 +23,13 @@ namespace WebApplication1.Models
         [Display(Name = "Upload File")]
         public HttpPostedFileBase ImgAttached { get; set; }
 
+        [Required]
+        [StringLength(60)]
         public string Title { get; set; }
 
         public int? Pages { get; set; }
 
+        [Required]
         public int? Price { get; set; }
     }
 }
