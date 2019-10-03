@@ -61,6 +61,10 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
+        <div id="breadcrumbs-div">
+            @Html.MvcSiteMap().SiteMapPath()
+        </div>
+        <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year – приложение ASP.NET</p>
         </footer>
