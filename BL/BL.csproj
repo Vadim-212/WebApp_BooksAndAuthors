@@ -84,6 +84,7 @@
     <Compile Include="BuisnessModel\GenreBM.cs" />
     <Compile Include="BuisnessModel\UserBM.cs" />
     <Compile Include="BuisnessModel\UsersBooksBM.cs" />
+    <Compile Include="InitializerClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\AuthorService.cs" />
     <Compile Include="Service\BookService.cs" />

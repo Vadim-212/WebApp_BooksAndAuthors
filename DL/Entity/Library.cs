@@ -23,7 +23,7 @@ namespace DL.Entity
             modelBuilder.Entity<Authors>()
                 .Property(e => e.FirstName)
                 .IsUnicode(false);
-
+            
             modelBuilder.Entity<Authors>()
                 .Property(e => e.LastName)
                 .IsUnicode(false);

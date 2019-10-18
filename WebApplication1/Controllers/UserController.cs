@@ -15,15 +15,22 @@ namespace WebApplication1.Controllers
     public class UserController : Controller
     {
         IUserService userService;
-        public UserController(IUserService serv)
+        IUserBookService userBookService;
+        public UserController(IUserService serv,IUserBookService serv2)
         {
             userService = serv;
+            userBookService = serv2;
             Log4Net.InitLogger();
         }
 
         public ActionResult Index()
         {
-            return View(AutoMapper<IEnumerable<UserBM>,List<UserModel>>.Map(userService.GetUsers));
+            List<UserModel> users = AutoMapper<IEnumerable<UserBM>, List<UserModel>>.Map(userService.GetUsers);
+            foreach (var item in users)
+            {
+                item.BooksCount = userBookService.GetUsersBooks().Where(x => x.UserId == item.Id).Count();
+            }
+            return View(users);
         }
 
         public ActionResult HistoryBooks()

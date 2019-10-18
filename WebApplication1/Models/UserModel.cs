@@ -14,5 +14,7 @@ namespace WebApplication1.Models
         [DataType(DataType.EmailAddress)]
         [EmailAddress]
         public string Email { get; set; }
+
+        public int BooksCount { get; set; }
     }
 }

@@ -88,6 +88,7 @@
     <Compile Include="Entity\Genre.cs" />
     <Compile Include="Entity\HelpClass.cs" />
     <Compile Include="Entity\Library.cs" />
+    <Compile Include="Entity\LibraryInitializer.cs" />
     <Compile Include="Entity\Users.cs" />
     <Compile Include="Entity\UsersBooks.cs" />
     <Compile Include="Entity\UsersWithBooks.cs" />

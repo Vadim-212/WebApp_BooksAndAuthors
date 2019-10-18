@@ -1,0 +1,21 @@
+﻿@model IEnumerable<WebApplication1.Models.UserModel>
+<div>GetTop5Orders</div>
+
+<div>
+    <table>
+        <thead>
+            <th>User name</th>
+            <th>Books count</th>
+            <th></th>
+        </thead>
+        <tbody>
+            @foreach(var item in Model.OrderBy(x=>x.BooksCount).Take(5))
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.BooksCount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,4 +1,5 @@
-﻿using BL.Service;
+﻿using BL;
+using BL.Service;
 using Ninject;
 using Ninject.Modules;
 using Ninject.Web.Mvc;
@@ -25,6 +26,7 @@ namespace WebApplication1
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             GlobalConfiguration.Configure(WebApiConfig.Register);
 
+            System.Data.Entity.Database.SetInitializer(InitializerClass.Initialize());
             NinjectModule Module = new ViewModule();
             NinjectModule serviceModule = new ServiceModule("DefaultConnection");
             var kernel = new StandardKernel(serviceModule, Module);
