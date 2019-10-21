@@ -42,7 +42,8 @@ namespace DL.Repository
 
         public IEnumerable<UsersBooks> GetAll()
         {
-            return db.UsersBooks.ToList();
+            List<UsersBooks> usersBooks = db.UsersBooks.OrderBy(x => x.IssueDate).ToList();
+            return usersBooks;
         }
 
         public void Update(UsersBooks item)
