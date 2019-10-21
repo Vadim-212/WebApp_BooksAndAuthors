@@ -273,6 +273,7 @@
     <Compile Include="Controllers\UsersBooksApiController.cs" />
     <Compile Include="Controllers\UsersBooksController.cs" />
     <Compile Include="Helpers\Log4Net.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AuthorBook.cs" />
     <Compile Include="Models\AuthorModel.cs" />
     <Compile Include="Models\BookModel.cs" />
@@ -418,7 +419,6 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\User\GetTop5Orders.cshtml" />
     <Content Include="Views\UsersBooks\CreateEdit.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SiteMapTitleHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SiteMapPathHelperModel.cshtml" />
@@ -430,6 +430,7 @@
     <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
     <Content Include="Views\Genre\Index.cshtml" />
     <Content Include="Views\Genre\CreateEdit.cshtml" />
+    <Content Include="Views\User\_GetTop5Orders.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

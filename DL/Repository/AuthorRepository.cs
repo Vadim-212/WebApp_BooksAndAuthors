@@ -43,8 +43,7 @@ namespace DL.Repository
 
         public IEnumerable<Authors> GetAll()
         {
-            List<Authors> authors = db.Authors.ToList();
-            authors.OrderBy(x => x.FirstName);
+            List<Authors> authors = db.Authors.OrderBy(x => x.FirstName).ToList();
             return authors;
         }
 
