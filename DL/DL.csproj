@@ -108,6 +108,10 @@
     <Compile Include="Migrations\201909231501262_AddGenre_GenreAndImageInBooks.Designer.cs">
       <DependentUpon>201909231501262_AddGenre_GenreAndImageInBooks.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910221403154_UsersBooksChange.cs" />
+    <Compile Include="Migrations\201910221403154_UsersBooksChange.Designer.cs">
+      <DependentUpon>201910221403154_UsersBooksChange.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AuthorRepository.cs" />
@@ -131,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909231501262_AddGenre_GenreAndImageInBooks.resx">
       <DependentUpon>201909231501262_AddGenre_GenreAndImageInBooks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910221403154_UsersBooksChange.resx">
+      <DependentUpon>201910221403154_UsersBooksChange.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

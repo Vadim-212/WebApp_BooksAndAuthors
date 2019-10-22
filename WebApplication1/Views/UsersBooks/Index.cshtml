@@ -30,7 +30,7 @@
                     <td>@item.IssueDate.ToString()</td>
                     <td>@item.Time.ToString()</td>
                     @*<td>@((DateTime.Compare(item.ReturnDate,new DateTime(1900,1,1,0,0,0)) == 0)?Html.ActionLink("Вернуть книгу","ReturnBook"):item.ReturnDate)</td>*@
-                    <td>@if (DateTime.Compare(item.ReturnDate, new DateTime(1900, 1, 1, 0, 0, 0)) == 0)
+                    <td>@if (DateTime.Compare((DateTime)item.ReturnDate, new DateTime(1900, 1, 1, 0, 0, 0)) == 0)
                     {
                         @Html.ActionLink("Вернуть книгу", "ReturnBook", new { id = item.Id }) 
                         if(DateTime.Compare(DateTime.Now,item.Time) == 1)

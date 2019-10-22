@@ -37,6 +37,12 @@ namespace DL.Entity
             modelBuilder.Entity<Books>()
                 .Property(e => e.Title)
                 .IsUnicode(false);
+
+            //modelBuilder.Entity<UsersBooks>()
+            //    .Property(e => e.IssueDate)
+            //    .HasColumnType("datetime2");
+
+            //modelBuilder.Properties<DateTime>().Configure(c => c.HasColumnType("datetime2"));
         }
     }
 }

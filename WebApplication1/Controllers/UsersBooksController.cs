@@ -31,7 +31,7 @@ namespace WebApplication1.Controllers
             List<AuthorBook> usersBooks = AutoMapper<IEnumerable<UsersBooksBM>, List<AuthorBook>>.Map(userBookService.GetUsersBooks);
             foreach(var item in usersBooks)
             {
-                item.BooksName = bookService.GetBook(item.BooksId).Title;
+                item.BooksName = bookService.GetBook(item.BookId).Title;
             }
             return View(usersBooks);
         }
@@ -51,7 +51,7 @@ namespace WebApplication1.Controllers
             else
             {
                 AuthorBook usersBooks = AutoMapper<UsersBooksBM, AuthorBook>.Map(userBookService.GetUserBook, (int)id);
-                ViewBag.books = new SelectList(books, "Id", "Title", usersBooks.BooksId);
+                ViewBag.books = new SelectList(books, "Id", "Title", usersBooks.BookId);
                 ViewBag.users = new SelectList(users, "Id", "Name", usersBooks.UserId);
                 return View(usersBooks);
             }
@@ -63,10 +63,13 @@ namespace WebApplication1.Controllers
             List<BookModel> books = AutoMapper<IEnumerable<BookBM>, List<BookModel>>.Map(bookService.GetBooks);
             List<UserModel> users = AutoMapper<IEnumerable<UserBM>, List<UserModel>>.Map(userService.GetUsers);
 
+            usersBooks.BookId = int.Parse(Request.Form["BookId"]);
+            usersBooks.UserId = int.Parse(Request.Form["UserId"]);
+
             if (usersBooks.IssueDate == null || usersBooks.IssueDate < DateTime.Now)
             {
 
-                ViewBag.books = new SelectList(books, "Id", "Title", usersBooks.BooksId);
+                ViewBag.books = new SelectList(books, "Id", "Title", usersBooks.BookId);
                 ViewBag.users = new SelectList(users, "Id", "Name", usersBooks.UserId);
                 ViewBag.error = "Дата заказа не должна быть пустой и должна быть больше текущей даты";
                 return View(usersBooks);
@@ -74,14 +77,19 @@ namespace WebApplication1.Controllers
 
             if (usersBooks.Time == null || DateTime.Compare(usersBooks.Time, new DateTime(1, 1, 1)) == 0)
             {
-                ViewBag.books = new SelectList(books, "Id", "Title", usersBooks.BooksId);
+                ViewBag.books = new SelectList(books, "Id", "Title", usersBooks.BookId);
                 ViewBag.users = new SelectList(users, "Id", "Name", usersBooks.UserId);
                 ViewBag.error = "Укажите срок сдачи книги";
                 return View(usersBooks);
             }
 
-            if (DateTime.Compare(usersBooks.ReturnDate, new DateTime(1, 1, 1)) == 0)
+            if (usersBooks.ReturnDate == null)
                 usersBooks.ReturnDate = new DateTime(1900, 1, 1);
+            else
+            {
+                if (DateTime.Compare((DateTime)usersBooks.ReturnDate, new DateTime(1, 1, 1)) == 0)
+                    usersBooks.ReturnDate = new DateTime(1900, 1, 1);
+            }
 
             UsersBooksBM busersBooks = AutoMapper<AuthorBook, UsersBooksBM>.Map(usersBooks);
 
@@ -95,7 +103,7 @@ namespace WebApplication1.Controllers
             else
             {
                 ViewBag.error = "Данный пользователь критический задолжник!!!!";
-                ViewBag.BooksId = new SelectList(books, "Id", "Title", usersBooks.BooksId);
+                ViewBag.BooksId = new SelectList(books, "Id", "Title", usersBooks.BookId);
                 ViewBag.UserId = new SelectList(users, "Id", "Name", usersBooks.UserId);
                 return View();
             }
@@ -154,10 +162,14 @@ namespace WebApplication1.Controllers
 
         public ActionResult ReturnBook(int id)
         {
-            AuthorBook usersBooks = AutoMapper<UsersBooksBM, AuthorBook>.Map(userBookService.GetUserBook, (int)id);
-            usersBooks.ReturnDate = DateTime.Now;
-            UsersBooksBM busersBooks = AutoMapper<AuthorBook, UsersBooksBM>.Map(usersBooks);
+            //AuthorBook usersBooks = AutoMapper<UsersBooksBM, AuthorBook>.Map(userBookService.GetUserBook, (int)id);
+            //usersBooks.ReturnDate = DateTime.Now;
+            //UsersBooksBM busersBooks = AutoMapper<AuthorBook, UsersBooksBM>.Map(usersBooks);
+            //userBookService.CreateOrUpdate(busersBooks);
+            UsersBooksBM busersBooks = userBookService.GetUserBook(id);
+            busersBooks.ReturnDate = DateTime.Now;
             userBookService.CreateOrUpdate(busersBooks);
+            userBookService.Save();
             return RedirectToAction("Index", "UsersBooks");
         }
         

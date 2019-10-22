@@ -56,7 +56,7 @@ namespace BL.Service
             {
                 Books book = Db.Books.Get(item.BookId);
                 Authors author = Db.Authors.Get(book.AuthorId);
-                UsersBooksBM userBook = new UsersBooksBM() { Id = item.Id, AuthorId = author.Id, AuthorName = author.FirstName, BookId = book.Id, BookName = book.Title, UserId = item.UserId, UserName = Db.Users.Get(item.UserId).Name, IssueDate = item.IssueDate };
+                UsersBooksBM userBook = new UsersBooksBM() { Id = item.Id, AuthorId = author.Id, AuthorName = author.FirstName, BookId = book.Id, BookName = book.Title, UserId = item.UserId, UserName = Db.Users.Get(item.UserId).Name, IssueDate = (DateTime)item.IssueDate };
                 bub.Add(userBook);
             }
 

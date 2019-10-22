@@ -65,7 +65,7 @@ namespace BL.Service
 
             public bool CheckUser(int id)
             {
-                UsersBooks usersBooks = Database.UsersBooks.Find(i => i.UserId == id && i.IssueDate <= DateTime.Now).FirstOrDefault();
+                UsersBooks usersBooks = Database.UsersBooks.Find(i => i.UserId == id && i.Time <= DateTime.Now).FirstOrDefault();
                 return (usersBooks == null) ? true : false;
             }
 

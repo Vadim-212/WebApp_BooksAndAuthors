@@ -15,6 +15,6 @@ namespace WebApplication1.Models
         [EmailAddress]
         public string Email { get; set; }
 
-        public int BooksCount { get; set; }
+        public IEnumerable<UserModelSmall> Top5Users { get; set; }
     }
 }

@@ -26,9 +26,25 @@ namespace WebApplication1.Controllers
         public ActionResult Index()
         {
             List<UserModel> users = AutoMapper<IEnumerable<UserBM>, List<UserModel>>.Map(userService.GetUsers);
-            foreach (var item in users)
+
+            if (users.Count > 0)
             {
-                item.BooksCount = userBookService.GetUsersBooks().Where(x => x.UserId == item.Id).Count();
+                List<UserModel> usersList2 = users;
+                List<UserModelSmall> u = new List<UserModelSmall>();
+                foreach (var item in usersList2)
+                {
+                    u.Add(new UserModelSmall()
+                    {
+                        Id = item.Id,
+                        UserName = item.Name,
+                        BookCount = userBookService.GetUsersBooks().Where(x => x.UserId == item.Id).Count()
+                    });
+                }
+                u.OrderByDescending(x => x.BookCount);
+                if (u.Count > 5)
+                    users.First().Top5Users = u.Take(5);
+                else
+                    users.First().Top5Users = u.Take(5);
             }
             return View(users);
         }

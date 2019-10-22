@@ -30,5 +30,5 @@
             }
         </tbody>
     </table>
-    @{ Html.RenderPartial("_GetTop5Orders", Model); }
+    @{ Html.RenderPartial("_GetTop5Orders", Model.First().Top5Users); }
 </div>

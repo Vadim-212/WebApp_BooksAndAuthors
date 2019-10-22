@@ -273,6 +273,10 @@
     <Compile Include="Controllers\UsersBooksApiController.cs" />
     <Compile Include="Controllers\UsersBooksController.cs" />
     <Compile Include="Helpers\Log4Net.cs" />
+    <Compile Include="Migrations\201910221350385_NullableForUsersBooksDates.cs" />
+    <Compile Include="Migrations\201910221350385_NullableForUsersBooksDates.Designer.cs">
+      <DependentUpon>201910221350385_NullableForUsersBooksDates.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AuthorBook.cs" />
     <Compile Include="Models\AuthorModel.cs" />
@@ -287,6 +291,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\UserModelSmall.cs" />
     <Compile Include="Modules\ViewModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -454,6 +459,11 @@
       <Project>{DFCEDD27-85EF-43F6-8DEC-2E545638569F}</Project>
       <Name>DL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201910221350385_NullableForUsersBooksDates.resx">
+      <DependentUpon>201910221350385_NullableForUsersBooksDates.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
